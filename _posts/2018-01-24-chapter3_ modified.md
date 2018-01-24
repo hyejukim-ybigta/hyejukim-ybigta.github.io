@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ISL_Chapter3_Linear Regression"
+title: "ISL_Chapter_modified"
 author: "hyeju.kim"
 categories: facts
 tags: [ISL]
