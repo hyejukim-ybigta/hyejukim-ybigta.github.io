@@ -9,9 +9,43 @@ image: LinearRegression.png
 
 
 
+# 3.1 Simple Linear Regression
+
+Y ≈ β0 + β1X.
+
+estimate -> y = ˆ β0 + ˆ β1x,
 
 
-## 3.1.3 Assessing the Accuracy of the Model*
+
+
+
+##  3.1.1 Estimating the Coefficients
+
+Then ei = yi−ˆyi represents the ith residual—this is the difference between the ith observed response value and the ith response value that is predicted by our linear model. We define the residual sum of squares (RSS) as
+
+![image](https://user-images.githubusercontent.com/32008883/35085855-bf794c4a-fc6d-11e7-98fa-c46ecbc58db8.png)
+
+
+
+- The least squares approach chooses ˆ β0 and ˆ β1 to minimize the RSS
+
+![image](https://user-images.githubusercontent.com/32008883/35085916-ed313f30-fc6d-11e7-9977-4e77b271de13.png)
+
+
+
+## 3.1.2 Assessing the Accuracy of the Coefficient Estimates
+
+![image](https://user-images.githubusercontent.com/32008883/35086008-4e6b665e-fc6e-11e7-9e3f-038fa832dad6.png)
+
+
+
+![image](https://user-images.githubusercontent.com/32008883/35086060-7cac1f4a-fc6e-11e7-926c-9e0a75dfd1a0.png)
+
+
+
+
+
+## 3.1.3 Assessing the Accuracy of the Model
 
 ### Residual Standard Error(RSE)란?
 
@@ -28,6 +62,8 @@ Y = f(x) + e
 ![img](file:///C:/Users/kimhj/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png)
 
 
+
+<질문> MSE와 RSE차이??
 
  ### R^2 statistic
 
@@ -67,10 +103,7 @@ linear regression setting, *R*2 = *r*2.
 
 
 
-This slightly counterintuitive result is very common in many real life
-situations. Consider an absurd example to illustrate the point. Running
-a regression of shark attacks versus ice cream sales for data collected at
-a given beach community over a period of time would show a positive
+This slightly counterintuitive result is very common in many real life situations. Consider an absurd example to illustrate the point. Running a regression of shark attacks versus ice cream sales for data collected at a given beach community over a period of time would show a positive
 relationship, similar to that seen between sales and newspaper. Of course
 no one (yet) has suggested that ice creams should be banned at beaches
 to reduce shark attacks. In reality, higher temperatures cause more people
@@ -85,25 +118,23 @@ longer significant after adjusting for temperature.
 
 
 
-???
+
+
+![image](https://user-images.githubusercontent.com/32008883/35086249-532b313c-fc6f-11e7-992f-d800d37bb3cf.png)
 
 
 
-It turns out that the answer depends
-on the values of n and p. When n is large, an F-statistic that is just a
-little larger than 1 might still provide evidence against H0. In contrast,
-a larger F-statistic is needed to reject H0 if n is small.
+<질문>
+
+It turns out that the answer depends on the values of n and p. When n is large, an F-statistic that is just a little larger than 1 might still provide evidence against H0. In contrast, a larger F-statistic is needed to reject H0 if n is small.
+
+잘설명하면 TSS-RSS 가 1에 가까움,, 1*n --> 저절로 커지게 됨//  통계량이 저절로 작아지게 됨. 
+
+잘 못설명하면 0에 가까움     0*n
 
 
 
-
-
-The approach of using an F-statistic to test for any association between
-the predictors and the response works when p is relatively small, and certainly
-small compared to n. However, sometimes we have a very large number
-of variables. If p > n then there are more coefficients βj to estimate
-than observations from which to estimate them. In this case we cannot
-even fit the multiple linear regression model using least squares, so the
+The approach of using an F-statistic to test for any association between the predictors and the response works when p is relatively small, and certainly small compared to n. However, sometimes we have a very large number of variables. If p > n then there are more coefficients βj to estimate than observations from which to estimate them. In this case we cannot even fit the multiple linear regression model using least squares, so the
 
 
 
@@ -112,37 +143,23 @@ even fit the multiple linear regression model using least squares, so the
 - Forward selection.
 - Backward selection.
 - Mixed selection
-- Backward selection cannot be used if p > n, while forward selection can
-  always be used. Forward selection is a greedy approach, and might include
-  variables early that later become redundant. Mixed selection can remedy
+- Backward selection cannot be used if p > n, while forward selection can always be used. Forward selection is a greedy approach, and might include variables early that later become redundant. Mixed selection can remedy
   this.
+
 
 
 
 ### Three: Model Fit
 
+- 변수 추가시 R^2 statistics 증가의 문제 : RSE로 해결
 
+It turns out that R2 will always increase when more variables are added to the model, even if those variables are only weakly associated with the response. This is due to the fact that adding another variable to the least squares equations must allow us to fit the training data (though not necessarily the testing data) more accurately. The observant reader may wonder how RSE can increase when newspaper is added to the model given that RSS must decrease. In general RSE is defined as
 
-It turns out that R2 will always increase when more variables
+![image](https://user-images.githubusercontent.com/32008883/35086406-e6d0c58c-fc6f-11e7-90e5-1c08a0f6d92e.png)
 
+ (3.25)
 
-
-are added to the model, even if those variables are only weakly associated
-with the response. This is due to the fact that adding another variable to
-the least squares equations must allow us to fit the training data (though
-not necessarily the testing data) more accurately.
-
-The observant reader may wonder how RSE can increase when
-newspaper is added to the model given that RSS must decrease. In general
-RSE is defined as
-RSE =
-
-1
-n − p − 1
-RSS, (3.25)
-which simplifies to (3.15) for a simple linear regression. Thus, models with
-more variables can have higher RSE if the decrease in RSS is small relative
-to the increase in p.
+which simplifies to (3.15) for a simple linear regression. Thus, models with more variables can have higher RSE if the decrease in RSS is small relative to the increase in p.
 
 ### Four: Predictions
 
@@ -157,18 +174,17 @@ uncertainty associated with this prediction.
 
   reducible + irreducible --> prediction interval
 
+  ​
+
 
 
 ## 3.3 Other Considerations in the Regression Model
 
 ### 3.3.1 Qualitative Predictors
 
-yi = β0+β1xi1+β2xi2+i =
-⎧⎪⎨
-⎪⎩
-β0+β1+i if ith person is Asian
-β0+β2+i if ith person is Caucasian
-β0+i if ith person is African American.
+ex
+
+![image](https://user-images.githubusercontent.com/32008883/35087469-a3c12a4e-fc73-11e7-8dc4-e4980bdd15fe.png)
 
 
 
@@ -176,19 +192,11 @@ yi = β0+β1xi1+β2xi2+i =
 
 **Removing the Additive Assumption- Interaction terms**
 
-Y = β0 + β1X1 + β2X2 + β3X1X2 + .
+![image](https://user-images.githubusercontent.com/32008883/35087529-cf4540a6-fc73-11e7-8d76-850f47bc9cae.png)
 
-Figure 3.7
-
-model now becomes
-balancei ≈ β0 + β1 × incomei +
-
-β2 + β3 × incomei if student
-0 if not student
-=
-
-(β0 + β2) + (β1 + β3) × incomei if student
-β0 + β1 × incomei if not student
+The hierarchical principle states that if we include an interaction in a model, we should also include the main effects, even if the p-values associated with principle their coefficients are not significant. In other words, if the interaction between
+X1 and X2 seems important, then we should include both X1 and
+X2 in the model even if their coefficient estimates have large p-values.
 
 
 
@@ -272,9 +280,45 @@ Figure 3.9
 ​	So if a given observation has a leverage statistic that greatly 		exceeds (p+1)/n, then we may suspect that the corresponding
 point has high leverage.
 
+**6. Collinearity **
+
+Collinearity refers to the situation in which two or more predictor variables are closely related to one another.
+
+Figure 3.15
+
+![image](https://user-images.githubusercontent.com/32008883/35081085-22befad4-fc55-11e7-9151-6b3c6cc46a62.png)
 
 
 
+Since collinearity reduces the accuracy of the estimates of the regression coefficients, it causes the standard error for ˆβj to grow.
+
+- How to detect collinearity?
+
+  - correlation matrix -> not always. multi collinearity의 경우는 detection안됨
+
+  - variance inflation factor (VIF).
+
+    ![image](https://user-images.githubusercontent.com/32008883/35081126-64bd8266-fc55-11e7-93ac-9884cdbb29f0.png)
+
+    - exceeds 5 or 10 -> serious problem
+    - ![image](https://user-images.githubusercontent.com/32008883/35081145-8b1efa7a-fc55-11e7-85a2-2899a895211d.png)
+
+  - 2 solutions for collinearity
+
+    - 1. drop one of the problematic variables
+      2. the average of standardized versions of limit and rating in order to create a new variable that measures credit worthiness.
+
+## 3.5 Comparison of Linear Regression with K-Nearest Neighbors
+
+- linear regression - parametric
+- K-nearest neighbors regression (KNN regression). - non-parametric
+
+
+
+- 두 개의 성능비교 : the parametric approach will outperform the nonparametric approach if the parametric form that has been selected is close to the true form of f.
+  - true form of f: linear -> linear  reg  (MSE LOWER)>> KNN
+  - true form of f: NONlinear -> linear  reg >> KNN (MSE LOWER)
+    - IN REALITY, however, curse of dimensionality problem occurs. p(predictor 개수)의 개수가 커지면 결국 linear reg >> KNN reg
 
 
 
