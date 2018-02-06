@@ -1,18 +1,13 @@
 ---
 layout: post
-<<<<<<< HEAD
-title: "ISL_Chapter3_Linear Regression"
-=======
 title: "ISL_Chapter_modified"
->>>>>>> 229cba7b3aec84f9dbf6c7a333c626be54fea306
 author: "hyeju.kim"
 categories: facts
 tags: [ISL]
-image: 
 ---
-<<<<<<< HEAD
-=======
 3.3.3 Potential Problems
+
+$\lambda$
 
 1. Non-linearity of the Data
 
