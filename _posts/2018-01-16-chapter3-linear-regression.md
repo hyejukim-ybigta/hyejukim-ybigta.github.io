@@ -2,7 +2,7 @@
 layout: post
 title: "ISL_Chapter3_Linear Regression"
 author: "hyeju.kim"
-categories: facts
+categories: ML
 tags: [ISL]
 image: LinearRegression.png
 ---

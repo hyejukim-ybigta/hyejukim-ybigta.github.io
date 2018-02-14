@@ -2,7 +2,7 @@
 layout: post
 title: "ISL_Chapter_modified"
 author: "hyeju.kim"
-categories: facts
+categories: ML
 tags: [ISL]
 ---
 3.3.3 Potential Problems
