@@ -2,7 +2,7 @@
 layout: post
 title: "ISL_Chapter7_Moving Beyond Linearity"
 author: "hyeju.kim"
-categories: facts
+categories: ML
 tags: [ISL]
 image: NaturalCubicSpline.png
 ---
