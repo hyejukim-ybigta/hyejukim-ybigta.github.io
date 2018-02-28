@@ -1,4 +1,4 @@
-```
+---
 layout: post
 
 title: "ISL_Chapter9_Support Vector Machines_korean"
@@ -10,8 +10,7 @@ categories: ML
 tags: [ISL]
 
 image: svm.jpg
-
-```
+---
 
 ## 9.1 최대 마진 분류기(Maximal Margin Classifier)
 
@@ -134,7 +133,7 @@ image: svm.jpg
 
 - 제곱, 세제곱, 등 다차항을 이용하여 feature space를 확장하는 방법
 
-  3?? what is feature space?
+  "feature space?" <https://stats.stackexchange.com/questions/46425/what-is-feature-space>
 
   - ex) 제곱항 - 2p개의 features($X_1,X_1^2,X_2,X_2^2, ... , X_p, X_p^2$)을 사용한 support vector classifier 
   - 앞에서 살펴본 (9.12)–(9.15) 은 다음과 같이 변화한다.
@@ -145,12 +144,12 @@ image: svm.jpg
 ### 9.3.2 The Support Vector Machine
 
 -  support vector classifier의 확장형태는 *kernels*를 사용하는 것인데, 역시 feature space를 확대할 수 있다. 즉 non-linear한 경계에 유용하다는 것이다.
-- 4???도대체 왜..? (9.12)-(9.15)의 해답은 오직 (자기자신제외)관측치들의 내적값이다. 그래서  support vector classifier는  (9.18)과 같은 형태로 생각할 수 있다.   However, it turns out that the solution to the support vector classifier problem (9.12)–(9.15)involves only the inner products of the observations (as opposed to the observations themselves). The inner product of two r-vectors a and b is defined as 
-- ![img](https://user-images.githubusercontent.com/32008883/36463295-6acf8312-170c-11e8-90bd-bc5ccc32d383.png)
-- ![img](https://user-images.githubusercontent.com/32008883/36463359-c0d8397a-170c-11e8-8bf8-b70781241bc0.png)
-- ![img](https://user-images.githubusercontent.com/32008883/36467879-25cc2cc6-1724-11e8-9944-58d28556f646.png)
-- ​
-- <http://ifyouwanna.tistory.com/entry/%EB%82%B4%EC%A0%81%EC%9D%98-%ED%99%9C%EC%9A%A9>
+-  4???도대체 왜..? (9.12)-(9.15)의 해답은 오직 (자기자신제외)관측치들의 내적값이다. 그래서  support vector classifier는  (9.18)과 같은 형태로 생각할 수 있다.   However, it turns out that the solution to the support vector classifier problem (9.12)–(9.15)involves only the inner products of the observations (as opposed to the observations themselves). The inner product of two r-vectors a and b is defined as 
+-  ![img](https://user-images.githubusercontent.com/32008883/36463295-6acf8312-170c-11e8-90bd-bc5ccc32d383.png)
+-  ![img](https://user-images.githubusercontent.com/32008883/36463359-c0d8397a-170c-11e8-8bf8-b70781241bc0.png)
+-  ![img](https://user-images.githubusercontent.com/32008883/36467879-25cc2cc6-1724-11e8-9944-58d28556f646.png)
+-  ​
+-  <http://ifyouwanna.tistory.com/entry/%EB%82%B4%EC%A0%81%EC%9D%98-%ED%99%9C%EC%9A%A9>
 
 
 - $K(x_i, x_{i^`})$
@@ -196,7 +195,7 @@ image: svm.jpg
 
 ### 9.3.2 Heart Disease Data에 적용
 
-5??roc curve is obtained by forming these predictions and computing the false postiive and true postive rates for a range of values of t
+ROC curve : True positive rate (민감도) 와 False positive rate(1-특이도) 를 축으로 하는 곡선. |ㅡ형태일 수록 좋은 것.
 
 - 좌측 : SVM with polynomial kernel of degree d=1 // LDA  모두 비슷하게 잘 작동하였음
 - 우측 :  SVM with a radial kernel , training set에서는 $\gamma $ 가 커질수록 (엄격하게 거리가 멀수록 더 가중치를 두니까) overfitting이 발생하여서, training 할떄는 ($\gamma = 10^{-1}$)일 떄 가장 좋았으나 test 에서는  ($\gamma = 10^{-2} or  \gamma = 10^{-3}$)  가 ($\gamma = 10^{-1}$) 보다 더 좋은 결과를 얻었다.
@@ -209,57 +208,55 @@ image: svm.jpg
 
 ### 9.4.1 One-Versus-One Classification
 
-다시//
+K개의 class가 있을 때, ${K}\choose{2}$ 개의 SVMs가 두개의 class씩 비교한다. 예를 들어, 하나의 SVM이  $k$번째 class(+1)과  $k^`$ 번째 class(-1)를 비교하여 관측치를 할당한다.최종적으로 ${K}\choose{2}$ 번의 분류 중 가장 많이 할당된 class를 부여한다. 
 
-K 개의 classes 가 있을 때,  ${K}\choose{2}$ 개의 SVMs 은 두 개의 class를 비교한다. 예를 들어 하나의 SVM은 k번째 class(+1)과  $k^`$ 번째 class(-1)을 비교한다. 최종 분류는  ${K}\choose{2}$ 개의 쌍을 이루는 분류를 바탕으로 test관측치가 어떤 class에 가장 많이 배당됬는지를 바탕으로 한다. pairwise classificationscodede as -1. The final classification is performed by assigning the test observation to the class to which it was most frequently assigned in these ${K}\choose{2}$ pairwise classifications
+??왜 pairwise?
+
+K classes : ${K}\choose{2}$  SVMs compare a pair of classes. For example, one such SVM might compare the $k$th class, coded as +1, to the $k^`$ class, codede as -1. The final classification is performed by assigning the test observation to the class to which it was most frequently assigned in these ${K}\choose{2}$ pairwise classifications
 
 ### 9.4.2 One-Versus-All Classification
 
-K classes :  SVMs compare one of the  classes to the ramiaing  classes. We assign the observation to the class for which  is the largest, as this amounts to a high level of confidence that the tesst observation belongs to the th class rather than to any of the other classes.
+$K$개의 SVMs가 하나의 class와 나머지 $K-1$ class들을 비교하는 방법이다.  $\beta_{0k} + \beta_{1k}x_1^* +  \beta_{2k}x_2^* + ... +  \beta_{pk}x_p^*$ 가 가장 큰 class에 관측치를 배정하는데, test 관측치가 다른 class보다 $k$번째 class에 속할 확신의 높은 정도라고 볼 수 있다.
 
-## 9.5 Relationship to Logistic Regression
 
-rewrite (9.12)-(9.15) as 
+
+## 9.5 로지스틱 회귀와 SVM의 관계
+
+(9.12)-(9.15)는 다음과 같이 쓰일 수 있다.  
 
 ![img](https://user-images.githubusercontent.com/32008883/36713135-6169c798-1bcf-11e8-8df4-d0581e791a32.png)
 
--  is a nonnegative tuning parameter
+- $\lambda$ 는 양수의 tuning 파라미터 
 
-  - when  is large then  are small, more violations to the margin are tolerated, and a low-variance but high-bias classifier will result
-  - when  is small, then few violations to the margin will occur; a high-variance but low-bias classifier
-  - small value of  amounts to a small value of  IN (9.15)
-  - term in (9.25) is the ridge penalty term, and plays a similar role in controlling the bias-variance trade-off for the support vector classifier
+  - $\lambda$ 가 크면 $\beta_1,..,\beta_p$가 작아지고, 마진에 대한 violations에 대해 더 관대해진다. $\to$ a low-variance but high-bias classifier 
 
-- (9.25) takes the **"Loss + Penalty"** 
+    $\lambda$가 작으면, 마진을 넘어서는 결과가 별로 없다.  $\to$  a high-variance but low-bias classifier
 
-  - ![img](https://user-images.githubusercontent.com/32008883/36713282-225dd00c-1bd0-11e8-9fdb-4a7389fbc0b8.png)
+  - 작은 $\lambda$ 는 (9.15)의 작은 값의 $C$과 대응한다. amounts to a small value of $C$ IN (9.15)
 
-  - ridge regression and the lasso both take this form with 
+  - (9.25)의 패널티항인 $\lambda\sum_{j=1}^p \beta_j^2$ 는 ridge 패널티 항이라고 볼 수 있고, 두 패널티 항 모두 bias-variance trade-off 역할을 한다.
+
+- (9.25) 는 **"Loss + Penalty"**형태라고 볼 수 있다. (9.26)과 같이 표현할 수 있다.
+
+  ![img](https://user-images.githubusercontent.com/32008883/36713282-225dd00c-1bd0-11e8-9fdb-4a7389fbc0b8.png)
+
+  - ridege 회귀와 lasso 회귀에 적용하면, Loss function부분은 다음과 같다. 
 
     ![img](https://user-images.githubusercontent.com/32008883/36713309-4b607f04-1bd0-11e8-9f0c-e72929252a78.png)
 
-    with  for ridge regression and  for the lasso
-
-  - in the case of(9.25) loss function is
+  - (9.25)의 경우 Loss function 은 다음과 같다.
 
     ![img](https://user-images.githubusercontent.com/32008883/36713414-d1127940-1bd0-11e8-8348-51b95a44eaf6.png)
 
-    - hinge loss
+    - hinge loss라고 부르며, 로지스틱 회귀의 loss function 과 밀접히 관련있다.
 
-      - closely related to the loss fnciton used in logistic regression
+    - support vector들만 분류기에 영향을 주고, 마진 기준 올바른 영역에 있는 관측치들은 영향을 주지 않는다.
 
-    - only support v ectors play a role in the classifier obtatined; observations on the correct side of the margin do not affect it
+    - 마진 기준 올바른 영역에 있는 관측치들은 loss function이 0이다. 하지만 로지스틱 회귀에서는, decision 경계에서 먼 관측치들은 loss function이 정확히 0이 아니라 점점 매우 작은 값을 보인다.
 
-    - observations that are the correct side of the margin :  then loss function 0 , but for logistic regression, just very small for observations that are far from the decsion boundary
-
-    - with this hinge loss function, the margin corresponds to the value one, and the width of the margin is determined by 
+      - 이 hinge loss function으로는, margin은 1에 해당하고, margin의 폭은 $\sum\beta_j^2$에 의해 결정된다.
 
       ![img](https://user-images.githubusercontent.com/32008883/36713595-c662b0d6-1bd1-11e8-92dc-b4fb80cbd17e.png)
 
-      ​
-
-  - when classes are well seperated, SVMs are preferred; in more overlapping regimes, logistic regression is often preferred
-
-  - for historical regions, the use of non-linear kernels is much more widespread in the context of SVMs than in the context of logistic regression or other methods
-
-    ​
+- class가 잘 나뉘어져있다면, SVM이 로지스틱 회귀보다 선호된다. 겹치는 영역이 많다면, 로지스틱 회귀가 더 선호된다. 
+- 역사적인 이유에서, non-linear kernel의 적용은 로지스틱 회귀나 다른 방법들에서보다 SVM에서 더 많이 쓰인다.
