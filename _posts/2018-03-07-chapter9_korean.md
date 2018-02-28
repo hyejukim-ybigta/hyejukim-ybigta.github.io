@@ -183,7 +183,7 @@ image: svm.jpg
     ​
 
     -  $\gamma$ : 양의 상수
-    -  만약 주어진 test 관측치 $x^* = (x^*_1 ... x^*_p)^T$가 training 관측치로부터 유클리디안 거리가 크다면, $\sum_{j=1}^p(x^*_j - x_{ij})^2$ 가 클 것이고, (9.24)는 매우 작아진다. 즉, (9.23)에서 $f(x^*)$ 에 영향을 주지 않게 된다. 즉,  $x^*$ 에서 멀리 떨어진 training관측치 $x_i$ 는 test 관측치 분류에 어떠한 영향도 끼치지 않는다.
+    -  만약 주어진 test 관측치 $$x^* = (x^*_1 ... x^*_p)^T$$가 training 관측치로부터 유클리디안 거리가 크다면, $$\sum_{j=1}^p(x^*_j - x_{ij})^2$$ 가 클 것이고, (9.24)는 매우 작아진다. 즉, (9.23)에서 $$f(x^*)$$ 에 영향을 주지 않게 된다. 즉,  $$x^*$$ 에서 멀리 떨어진 training관측치 $$x_i$$ 는 test 관측치 분류에 어떠한 영향도 끼치지 않는다.
     -  the radial kernel은 오직 근처의 training 관측치들만 test관측치에 영향을 끼치기 때문에 *local*하다. 
 
 
@@ -205,9 +205,9 @@ image: svm.jpg
 
 ### 9.3.2 Heart Disease Data에 적용
 
-ROC curve : True positive rate (민감도) 와 False positive rate(1-특이도) 를 축으로 하는 곡선. |ㅡ형태일 수록 좋은 것.
+ROC curve : True positive rate (민감도) 와 False positive rate(1-특이도) 를 축으로 하는 곡선. ㄱ의 좌우대칭 형태일 수록 좋은 것.
 
-- 좌측 : SVM with polynomial kernel of degree d=1 // LDA  모두 비슷하게 잘 작동하였음
+- 좌측 : SVM with polynomial kernel of degree d=1 // LDA  모두 비슷하게 잘 작동했다.
 - 우측 :  SVM with a radial kernel , training set에서는 $\gamma $ 가 커질수록 (엄격하게 거리가 멀수록 더 가중치를 두니까) overfitting이 발생하여서, training 할떄는 ($\gamma = 10^{-1}$)일 떄 가장 좋았으나 test 에서는  ($\gamma = 10^{-2} or  \gamma = 10^{-3}$)  가 ($\gamma = 10^{-1}$) 보다 더 좋은 결과를 얻었다.
 
 
