@@ -144,11 +144,21 @@ image: svm.jpg
 ### 9.3.2 The Support Vector Machine
 
 -  support vector classifier의 확장형태는 *kernels*를 사용하는 것인데, 역시 feature space를 확대할 수 있다. 즉 non-linear한 경계에 유용하다는 것이다.
--  4???도대체 왜..? (9.12)-(9.15)의 해답은 오직 (자기자신제외)관측치들의 내적값이다. 그래서  support vector classifier는  (9.18)과 같은 형태로 생각할 수 있다.   However, it turns out that the solution to the support vector classifier problem (9.12)–(9.15)involves only the inner products of the observations (as opposed to the observations themselves). The inner product of two r-vectors a and b is defined as 
+
+-  4???도대체 왜..? (9.12)-(9.15)의 해답은 오직 (자기자신제외)관측치들의 내적값이다. 그래서  support vector classifier는  (9.18)과 같은 형태로 생각할 수 있다.   
+
+   ​
+
+-  이부분 왜 그런지 이해가 안 가는데 설명해주실 분 ㅜㅜ 
+
 -  ![img](https://user-images.githubusercontent.com/32008883/36463295-6acf8312-170c-11e8-90bd-bc5ccc32d383.png)
+
 -  ![img](https://user-images.githubusercontent.com/32008883/36463359-c0d8397a-170c-11e8-8bf8-b70781241bc0.png)
+
 -  ![img](https://user-images.githubusercontent.com/32008883/36467879-25cc2cc6-1724-11e8-9944-58d28556f646.png)
+
 -  ​
+
 -  <http://ifyouwanna.tistory.com/entry/%EB%82%B4%EC%A0%81%EC%9D%98-%ED%99%9C%EC%9A%A9>
 
 
