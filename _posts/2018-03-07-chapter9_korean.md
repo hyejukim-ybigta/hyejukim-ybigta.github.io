@@ -68,7 +68,7 @@ image: svm.jpg
 
     - 답 : 점($$x_0,y_0,z_0$$)과 평면($$ax+by+cz+d=0$$) 사이의 거리 $$d=\frac{\mid ax_0 + by_0 + cz_0 + d  \mid}{\sqrt{a^2+b^2+c^2}} $$ 
 
-      즉 (9.10)의 조건으로 분모 부분이 1 이되어서 [(9.6)](#9.1.2 초평면을 사용한 분류) 과 (9.7)에 의해 $y_i(\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... +\beta_px_{ip})$ 값이 수직 거리가 된다.(절대값 기호)
+      즉 (9.10)의 조건으로 분모 부분이 1 이되어서 [(9.6)](#9.1.2 초평면을 사용한 분류) 과 (9.7)에 의해 d 는 결국 $y_i(\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... +\beta_px_{ip})$ 과 같아진다. (절대값 기호)
 
   - (9.10)&(9.11): 각각의 관측치가 초평면에서 올바른 위치에 있고, 초평면에서 적어도 M 거리를 가지고 있다는 것이다.
 
@@ -109,7 +109,7 @@ image: svm.jpg
     - $\epsilon_i > 0$ 일 때, $i$ 번째 관측치는 margin기준 반대 영역에 위치한다. 
     - $\epsilon_i > 1$ 일 때,  $i$ 번째 관측치는 hyperplane기준 반대 영역에 위치한다....(a)
 
-    **질문2 )** slack variable기준이 1인 이유가 있나?
+    ​
 
   - (9.14):  slack variable 들의 총합의 기준이 되는 $C$ 는 마진이나 초평면 기준에 어긋나는 것들에 대한 민감도를 조절할 수 있는 튜닝 파라미터이다. 관측치들이 margin기준 반대 영역에 위치하는 잘못을 저질러도 봐주는 예산 정도라고 봐도 된다. 
 
@@ -143,15 +143,11 @@ image: svm.jpg
 
   "feature space?" <https://stats.stackexchange.com/questions/46425/what-is-feature-space>
 
-  - ex) 제곱항 - 2p개의 features($X_1,X_1^2,X_2,X_2^2, ... , X_p, X_p^2​$)을 사용한 support vector classifier 
+  - ex) 제곱항 - 2p개의 features($X_1,X_1^2,X_2,X_2^2, ... , X_p, X_p^2$)을 사용한 support vector classifier 
 
   - 앞에서 살펴본 (9.12)–(9.15) 은 다음과 같이 변화한다.
 
   - ![img](https://user-images.githubusercontent.com/32008883/36463122-1b7bb912-170b-11e8-92a4-4009f2e6f82e.png)
-
-  - **질문 3)** But in the original feature space, the decision boundary is of the form q(x) = 0, where q is a quadratic polynomial, and its solutions are generally non-linear)
-
-    A) 변환함으로서(feature space 확장함으로서) non-linear boundary 를 쓸 수 있다.(linear처럼 써가지고)
 
   - 설명변수(predictor)를 변형하여 다른 함수를 사용할 수 있지만, 너무 많은 feature는 좋지 않다.
 
@@ -159,33 +155,46 @@ image: svm.jpg
 
 -  support vector classifier의 확장형태는 *kernels*를 사용하는 것인데, 역시 feature space를 확대할 수 있다. 즉 non-linear한 경계에 유용하다는 것이다.
 
--  **질문 4)** (9.12)-(9.15)의 해답은 오직 (자기자신제외)관측치들의 내적값이다. 그래서  support vector classifier는  (9.18)과 같은 형태로 생각할 수 있다.   
+-  linear support vector classifier는 다음과 같이 표현할 수 있다. $x$ 는 test observation이고 $x_i$ 는 training observation 이다.
+
+   ![image](https://user-images.githubusercontent.com/32008883/36789744-ef181d04-1cd5-11e8-8f53-8fa62461258e.png)
+
+   단, ![image](https://user-images.githubusercontent.com/32008883/36789789-1635c7ba-1cd6-11e8-9043-98ac282b0e81.png)
+
+   표기는 관측치들의 내적값이다. 즉, linear classfier $f(x)$ 에서 계수를 계산하려면 내적값만 있으면 된다. 
+
+   *내적값을 사용하는 이유 : (9.12)~(9.15)에서 얻은 평면과 포인트사이 수직거리는 결국 내적과 관련이 있다. 단위벡터(unit vector) *(내적) 방향벡터는 평면과 점 사이 수직거리가 되기 떄문이다.
+
+   <http://ifyouwanna.tistory.com/entry/%EB%82%B4%EC%A0%81%EC%9D%98-%ED%99%9C%EC%9A%A9> 2번 내용 참고
 
    ​
 
--  이부분 왜 그런지 이해가 안 가는데 설명해주실 분 ㅜㅜ 
+   (9. 18)에서  training observation이 support vector일 경우에만 $\alpha_i$ 가 0이 아니고 support vector가 아니면 $\alpha_i$가 0이다. 즉, $S$가 support vector들의 집합이라면 (9.18)은 다음과 같이 표기할 수 있다.
 
--  ![img](https://user-images.githubusercontent.com/32008883/36463295-6acf8312-170c-11e8-90bd-bc5ccc32d383.png)
+   ![image](https://user-images.githubusercontent.com/32008883/36789978-a42e229c-1cd6-11e8-9aab-3d46f877f103.png)
 
--  ![img](https://user-images.githubusercontent.com/32008883/36463359-c0d8397a-170c-11e8-8bf8-b70781241bc0.png)
+   ​
 
--  ![img](https://user-images.githubusercontent.com/32008883/36467879-25cc2cc6-1724-11e8-9944-58d28556f646.png)
-
--  ​
-
--  <http://ifyouwanna.tistory.com/entry/%EB%82%B4%EC%A0%81%EC%9D%98-%ED%99%9C%EC%9A%A9>
+   ​
 
 
 - $K(x_i, x_{i^`})$
-  - kernel : 내적을 표현하는 수단이다. K라고 표기한다.
+  - kernel : 두 개 관측치의 유사도를 양적으로 표현하는 함수이다.  K라고 표기한다.
 
-  - 두 개 관측치의 유사도를 양적으로 표현하는 함수이다. 
+  ​
 
   - a linear kernel (Pearson (standard) correlation):
 
-    ![img](https://user-images.githubusercontent.com/32008883/36468104-641927d0-1725-11e8-8581-a0ab01538a71.png)
+    상관계수와 내적의 관계: <https://wikidocs.net/6957>
+
+    ![img](https://user-images.githubusercontent.com/32008883/36468104-641927d0-1725-11e8-8581-a0ab01538a71.png)**SVM**
+
+    - support vector classifier가 non-linear kernel과 결합했을때, support vector machine이라고 한다.
+
+      ![img](https://user-images.githubusercontent.com/32008883/36468162-9c73bf14-1725-11e8-9e48-b3887f91dcf3.png)
 
   - polynomial kernel(flexible. non-linear):
+
     - d: 양수
 
     ![img](https://user-images.githubusercontent.com/32008883/36468094-5318c418-1725-11e8-999d-765c83f1346a.png)
@@ -207,26 +216,28 @@ image: svm.jpg
 
 - 좌측 : polynomial kernel 사용 // 우측 : radial kernel 사용
 
-- SVM
-
-  -  support vector classifier가 (9.22)와 같은 non-linear kernel과 결합했을때, support vector machine이라고 한다..
-
-    ![img](https://user-images.githubusercontent.com/32008883/36468162-9c73bf14-1725-11e8-9e48-b3887f91dcf3.png)
-
-    ​
+  ​
 
   ​
 
+  ​
+
+
 ### 9.3.2 Heart Disease Data에 적용
 
-ROC curve : True positive rate (민감도) 와 False positive rate(1-특이도) 를 축으로 하는 곡선. ㄱ의 좌우대칭 형태일 수록 좋은 것.
+ROC curve : True positive rate (민감도) 와 False positive rate(1-특이도) 를 축으로 하는 곡선. ㄱ의 좌우대칭 형태일 수록 좋은 것. 
+
+- ROC curve 과 민감도, 특이도에 관련된 부분은 다음 링크 참고 <https://sites.google.com/site/torajim/articles/performance_measure>
+
 
 - 좌측 : SVM with polynomial kernel of degree d=1 // LDA  모두 비슷하게 잘 작동했다.
-- 우측 :  SVM with a radial kernel , training set에서는 $\gamma $ 가 커질수록 (엄격하게 거리가 멀수록 더 가중치를 두니까) overfitting이 발생하여서, training 할떄는 ($\gamma = 10^{-1}$)일 떄 가장 좋았으나 test 에서는  ($\gamma = 10^{-2} or  \gamma = 10^{-3}$)  가 ($\gamma = 10^{-1}$) 보다 더 좋은 결과를 얻었다.
+- 우측 :  SVM with a radial kernel , training set에서는 $\gamma $ 가 커질수록 (거리가 멀수록 더 가중치를 두니까) overfitting이 발생하여서, training 할떄는 ($\gamma = 10^{-1}$)일 떄 가장 좋았으나 test 에서는  ($\gamma = 10^{-2} or  \gamma = 10^{-3}$)  가 ($\gamma = 10^{-1}$) 보다 더 좋은 결과를 얻었다.
 
 
 
 ![img](https://user-images.githubusercontent.com/32008883/36712482-5b718c02-1bcc-11e8-867d-4d6551822c1d.png)
+
+
 
 ## 9.4 SVMs with More than Two Classes
 
@@ -234,13 +245,11 @@ ROC curve : True positive rate (민감도) 와 False positive rate(1-특이도) 
 
 K개의 class가 있을 때, ${K}\choose{2}$ 개의 SVMs가 두개의 class씩 비교한다. 예를 들어, 하나의 SVM이  $k$번째 class(+1)과  $k^`$ 번째 class(-1)를 비교하여 관측치를 할당한다.최종적으로 ${K}\choose{2}$ 번의 분류 중 가장 많이 할당된 class를 부여한다. 
 
-**질문 5 )** 왜 pairwise?
 
-K classes : ${K}\choose{2}$  SVMs compare a pair of classes. For example, one such SVM might compare the $k$th class, coded as +1, to the $k^`$ class, codede as -1. The final classification is performed by assigning the test observation to the class to which it was most frequently assigned in these ${K}\choose{2}$ pairwise classifications
 
 ### 9.4.2 One-Versus-All Classification
 
-$K$개의 SVMs가 하나의 class와 나머지 $K-1$ class들을 비교하는 방법이다.  $\beta_{0k} + \beta_{1k}x_1^* +  \beta_{2k}x_2^* + ... +  \beta_{pk}x_p^*$ 가 가장 큰 class에 관측치를 배정하는데, test 관측치가 다른 class보다 $k$번째 class에 속할 확신의 높은 정도라고 볼 수 있다.
+$K$개의 SVMs가 하나의 class와 나머지 $K-1$ class들을 비교하는 방법이다.  $\beta_{0k} + \beta_{1k}x_1^* +  \beta_{2k}x_2^* + ... +  \beta_{pk}x_p^*$ 가 가장 큰 class에 관측치를 배정하는데,  hyperplane에서 가장 멀 떄 해당 class에 배정하는 것이다.  test 관측치가 다른 class보다 $k$번째 class에 속할 확신 정도라고 볼 수 있다.
 
 
 
@@ -256,7 +265,7 @@ $K$개의 SVMs가 하나의 class와 나머지 $K-1$ class들을 비교하는 �
 
     $\lambda$가 작으면, 마진을 넘어서는 결과가 별로 없다.  $\to$  a high-variance but low-bias classifier
 
-  - 작은 $\lambda$ 는 (9.15)의 작은 값의 $C$과 대응한다. amounts to a small value of $C$ IN (9.15)
+    작은 $\lambda$ 는 (9.15)의 작은 값의 $C$과 대응한다. 
 
   - (9.25)의 패널티항인 $\lambda\sum_{j=1}^p \beta_j^2$ 는 ridge 패널티 항이라고 볼 수 있고, 두 패널티 항 모두 bias-variance trade-off 역할을 한다.
 
@@ -283,4 +292,7 @@ $K$개의 SVMs가 하나의 class와 나머지 $K-1$ class들을 비교하는 �
       ![img](https://user-images.githubusercontent.com/32008883/36713595-c662b0d6-1bd1-11e8-92dc-b4fb80cbd17e.png)
 
 - class가 잘 나뉘어져있다면, SVM이 로지스틱 회귀보다 선호된다. 겹치는 영역이 많다면, 로지스틱 회귀가 더 선호된다. 
+
+  - 참고 : <https://stats.stackexchange.com/questions/254124/why-does-logistic-regression-become-unstable-when-classes-are-well-separated>
+
 - 역사적인 이유에서, non-linear kernel의 적용은 로지스틱 회귀나 다른 방법들에서보다 SVM에서 더 많이 쓰인다.
