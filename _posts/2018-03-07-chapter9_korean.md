@@ -31,7 +31,7 @@ image: svm.jpg
 
 - 만약 blue class에 속할 때 1로 라벨링하고, purple class에 속할 때 -1로 라벨링한다고 하자. y값이 1인 class, 즉 blue class는 초평면이 0보다 큰 영역이고, y값이 -1인 class, 즉 purple class면 기준이 되는 초평면이 0보다 작은 영역이다. 즉, (9.8)과 같은 식을 얻을 수 있다. 
 
-- 기준이 되는 초평면이 있다면, 이를 활용한 분류기를 얻을 수 있다. test 관측치 $x^*$ 가 초평면의 어떤 쪽에 속하는지, 즉 0보다 큰지 작은지에 따라 class를 분류할 수 있다. $f(x^*) = \beta_0 + \beta_1x_1^* + \beta_2x_2^* + ... +\beta_px_p^*$ 가 0보다 크면 class1에 배정, 0보다 작으면 class -1에 배정한다. $f(x^*) $의 크기를 사용하면, 할당에 대한 확신 정도를 알 수 있다. $f(x^*)$ 가 0에서 멀 수록 초평면에서 멀리 떨어져있다는 것인데, 그만큼 class 할당에 자신있다는 것이다. 
+- 기준이 되는 초평면이 있다면, 이를 활용한 분류기를 얻을 수 있다. test 관측치 $$x^*$$ 가 초평면의 어떤 쪽에 속하는지, 즉 0보다 큰지 작은지에 따라 class를 분류할 수 있다. $$f(x^*) = \beta_0 + \beta_1x_1^* + \beta_2x_2^* + ... +\beta_px_p^*$$ 가 0보다 크면 class1에 배정, 0보다 작으면 class -1에 배정한다. $$f(x^*) $$의 크기를 사용하면, 할당에 대한 확신 정도를 알 수 있다. $$f(x^*)$$ 가 0에서 멀 수록 초평면에서 멀리 떨어져있다는 것인데, 그만큼 class 할당에 자신있다는 것이다. 
 
   ![image](https://user-images.githubusercontent.com/32008883/36726405-ff89cbc6-1bfc-11e8-8a90-7e65ec21d268.png)
 
@@ -48,7 +48,7 @@ image: svm.jpg
 
 - 차원이 커질 때 overfitting문제가 발생할 수 있다.
 
-- $f(x^*)$ 의 부호에 따라 test 관측치 $x^*$ 의 분류가 달라진다.
+- $$f(x^*)$$ 의 부호에 따라 test 관측치 $$x^*$$ 의 분류가 달라진다.
 
 - Support Vector : 쉽게 생각하면 초평면 부근의 관측치들이다. 이 점들이 조금이라도 움직이면 최대 마진 초평면이 변경될 수 있기 때문에 이 점들(vector)가 초평면을 지지(support)한다고 볼 수 있다. 아래 그림에서 점선에 놓인 두개의 파란 점과 한 개의 보라 점이 Support Vector이다.
 
@@ -63,7 +63,7 @@ image: svm.jpg
 ![img](https://user-images.githubusercontent.com/32008883/36379334-79ca3b6a-15c1-11e8-8fb7-3e317ce91b07.png)
 
 - - (9.11) : 각각의 관측치들이 초평면을 기준으로 올바른 위치(0보다 큰지 작은지)에 있어야 한다는 뜻이다. M은 양수이다. 
-  - 1???why??(9.10) : (9.10)의 조건이 있어야 $y_i(\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... +\beta_px_{ip})$ 값이 초평면과 i번째 관측치 사이의 수직 거리가 된다.
+  - **질문 1 )** (9.10) : (9.10)의 조건이 있어야 $y_i(\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... +\beta_px_{ip})$ 값이 초평면과 i번째 관측치 사이의 수직 거리가 된다.
   - (9.10)&(9.11): 각각의 관측치가 초평면에서 올바른 위치에 있고, 초평면에서 적어도 M 거리를 가지고 있다는 것이다.
   - M : 기준이 되는 초평면에서의 마진(margin)
   - (9.9) : M을 가장 최대화하는 방향으로 최적화한다.
@@ -101,7 +101,7 @@ image: svm.jpg
     - $\epsilon_i > 0$ 일 때, $i$ 번째 관측치는 margin기준 반대 영역에 위치한다. 
     - $\epsilon_i > 1$ 일 때,  $i$ 번째 관측치는 hyperplane기준 반대 영역에 위치한다....(a)
 
-    2?? slack variable기준이 1인 이유가 있나?
+    **질문2 )** slack variable기준이 1인 이유가 있나?
 
   - (9.14):  slack variable 들의 총합의 기준이 되는 $C$ 는 마진이나 초평면 기준에 어긋나는 것들에 대한 민감도를 조절할 수 있는 튜닝 파라미터이다. 관측치들이 margin기준 반대 영역에 위치하는 잘못을 저질러도 봐주는 예산 정도라고 봐도 된다. 
 
@@ -138,14 +138,14 @@ image: svm.jpg
   - ex) 제곱항 - 2p개의 features($X_1,X_1^2,X_2,X_2^2, ... , X_p, X_p^2$)을 사용한 support vector classifier 
   - 앞에서 살펴본 (9.12)–(9.15) 은 다음과 같이 변화한다.
   - ![img](https://user-images.githubusercontent.com/32008883/36463122-1b7bb912-170b-11e8-92a4-4009f2e6f82e.png)
-  - ???무슨 의미일까요..?But in the original feature space, the decision boundary is of the form q(x) = 0, where q is a quadratic polynomial, and its solutions are generally non-linear
+  - **질문 3)** But in the original feature space, the decision boundary is of the form q(x) = 0, where q is a quadratic polynomial, and its solutions are generally non-linear
   - 설명변수(predictor)를 변형하여 다른 함수를 사용할 수 있지만, 너무 많은 feature는 좋지 않다.
 
 ### 9.3.2 The Support Vector Machine
 
 -  support vector classifier의 확장형태는 *kernels*를 사용하는 것인데, 역시 feature space를 확대할 수 있다. 즉 non-linear한 경계에 유용하다는 것이다.
 
--  4???도대체 왜..? (9.12)-(9.15)의 해답은 오직 (자기자신제외)관측치들의 내적값이다. 그래서  support vector classifier는  (9.18)과 같은 형태로 생각할 수 있다.   
+-  **질문 4)** (9.12)-(9.15)의 해답은 오직 (자기자신제외)관측치들의 내적값이다. 그래서  support vector classifier는  (9.18)과 같은 형태로 생각할 수 있다.   
 
    ​
 
@@ -220,7 +220,7 @@ ROC curve : True positive rate (민감도) 와 False positive rate(1-특이도) 
 
 K개의 class가 있을 때, ${K}\choose{2}$ 개의 SVMs가 두개의 class씩 비교한다. 예를 들어, 하나의 SVM이  $k$번째 class(+1)과  $k^`$ 번째 class(-1)를 비교하여 관측치를 할당한다.최종적으로 ${K}\choose{2}$ 번의 분류 중 가장 많이 할당된 class를 부여한다. 
 
-??왜 pairwise?
+**질문 5 )** 왜 pairwise?
 
 K classes : ${K}\choose{2}$  SVMs compare a pair of classes. For example, one such SVM might compare the $k$th class, coded as +1, to the $k^`$ class, codede as -1. The final classification is performed by assigning the test observation to the class to which it was most frequently assigned in these ${K}\choose{2}$ pairwise classifications
 
