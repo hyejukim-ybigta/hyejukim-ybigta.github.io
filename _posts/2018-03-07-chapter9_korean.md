@@ -63,9 +63,17 @@ image: svm.jpg
 ![img](https://user-images.githubusercontent.com/32008883/36379334-79ca3b6a-15c1-11e8-8fb7-3e317ce91b07.png)
 
 - - (9.11) : 각각의 관측치들이 초평면을 기준으로 올바른 위치(0보다 큰지 작은지)에 있어야 한다는 뜻이다. M은 양수이다. 
+
   - **질문 1 )** (9.10) : (9.10)의 조건이 있어야 $y_i(\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... +\beta_px_{ip})$ 값이 초평면과 i번째 관측치 사이의 수직 거리가 된다.
+
+    - 답 : 점($$x_0,y_0,z_0$$)과 평면($$ax+by+cz+d=0$$) 사이의 거리 $$d=\frac{\mid ax_0 + by_0 + cz_0 + d  \mid}{\sqrt{a^2+b^2+c^2}} $$ 
+
+      즉 (9.10)의 조건으로 분모 부분이 1 이되어서 [(9.6)](#9.1.2 초평면을 사용한 분류) 과 (9.7)에 의해 $y_i(\beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + ... +\beta_px_{ip})$ 값이 수직 거리가 된다.(절대값 기호)
+
   - (9.10)&(9.11): 각각의 관측치가 초평면에서 올바른 위치에 있고, 초평면에서 적어도 M 거리를 가지고 있다는 것이다.
+
   - M : 기준이 되는 초평면에서의 마진(margin)
+
   - (9.9) : M을 가장 최대화하는 방향으로 최적화한다.
 
 ### 9.1.5 최대 마진 분류기로 분류하기 어려운 경우
@@ -135,10 +143,16 @@ image: svm.jpg
 
   "feature space?" <https://stats.stackexchange.com/questions/46425/what-is-feature-space>
 
-  - ex) 제곱항 - 2p개의 features($X_1,X_1^2,X_2,X_2^2, ... , X_p, X_p^2$)을 사용한 support vector classifier 
+  - ex) 제곱항 - 2p개의 features($X_1,X_1^2,X_2,X_2^2, ... , X_p, X_p^2​$)을 사용한 support vector classifier 
+
   - 앞에서 살펴본 (9.12)–(9.15) 은 다음과 같이 변화한다.
+
   - ![img](https://user-images.githubusercontent.com/32008883/36463122-1b7bb912-170b-11e8-92a4-4009f2e6f82e.png)
-  - **질문 3)** But in the original feature space, the decision boundary is of the form q(x) = 0, where q is a quadratic polynomial, and its solutions are generally non-linear
+
+  - **질문 3)** But in the original feature space, the decision boundary is of the form q(x) = 0, where q is a quadratic polynomial, and its solutions are generally non-linear)
+
+    A) 변환함으로서(feature space 확장함으로서) non-linear boundary 를 쓸 수 있다.(linear처럼 써가지고)
+
   - 설명변수(predictor)를 변형하여 다른 함수를 사용할 수 있지만, 너무 많은 feature는 좋지 않다.
 
 ### 9.3.2 The Support Vector Machine
