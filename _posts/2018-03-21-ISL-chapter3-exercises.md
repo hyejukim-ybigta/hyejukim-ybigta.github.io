@@ -106,9 +106,11 @@ Y = 50 + 20 * 4 + 0.07 * 110 + 35 * 1 + 0.01 * ( 4 * 110) - 10 ( 4 * 1) = 137.1
 
    ### $\therefore$(3.17) R^2 statistic
 
-   ###  $ = r^2=\frac{\sum_{i=1}^{n}{(\hat{y}_i−\overline{y})}^2}{\sum_{i=1}^{n} {(y_i-\overline{y})}^2}$
+   ###  $ r^2=\frac{\sum_{i=1}^{n}{(\hat{y}_i−\overline{y})}^2}{\sum_{i=1}^{n} {(y_i-\overline{y})}^2}$
 
-   ###$=\frac{(∑^n_{i=1}(x_i−\overline{x})(y_i−\overline{y}))^2}{∑^n_{i=1}(x_i−\overline{x})^2\sum_{i=1}^{n} {(y_i-\overline{y})}^2} $= square of the correlation between X and Y(3.17)
+   ###$=\frac{(∑^n_{i=1}(x_i−\overline{x})(y_i−\overline{y}))^2}{∑^n_{i=1}(x_i−\overline{x})^2\sum_{i=1}^{n} {(y_i-\overline{y})}^2} $
+
+   ###= square of the correlation between X and Y(3.17)
 
    [증명출처](https://math.stackexchange.com/questions/129909/correlation-coefficient-and-determination-coefficient)
 
