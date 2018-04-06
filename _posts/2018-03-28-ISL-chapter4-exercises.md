@@ -25,19 +25,19 @@ image: chapter3_exercise.jpg
 
    *Proof.* Let $x​$ remain fixed and observe that we are maximizing over the parameter $k​$. Suppose that $δ_k(x)≥δ_i(x)​$. We will show that $f_k(x)≥f_i(x)​$, From our assumption we have
 
-   $x\frac{μ_k}{σ^2}−\frac{(μ_k)^2}{2σ^2}+log(π_k)≥x\frac{μ_i}{σ^2}−\frac{{μ_i}^2}{2σ^2}+log(π_i)$
+   $x\frac{μ_k}{σ^2}−\frac{μ_k^2}{2σ^2}+log(π_k)≥x\frac{μ_i}{σ^2}−\frac{μ_i^2}{2σ^2}+log(π_i)$
 
    exponential function is monotonically increasing function,so the following inequality holds
 
-   $π_k exp(x\frac{μ_k}{σ^2}−\frac{{μ_k}^2}{2σ^2}+log(π_k)) ≥ π_i exp(x\frac{μ_i}{σ^2}−\frac{{μ_i}^2}{2σ^2}+log(π_i))$
+   $π_k exp(x\frac{μ_k}{σ^2}−\frac{μ_k^2}{2σ^2}+log(π_k)) ≥ π_i exp(x\frac{μ_i}{σ^2}−\frac{μ_i^2}{2σ^2}+log(π_i))$
 
    Multiply this inequality by the positive constant
 
-   $c=\frac{\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}x^2)}{∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-{μ_l})^2)}$
+   $c=\frac{\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}x^2)}{∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-μ_l)^2)}$
 
    and we have that
 
-   $\frac{π_k\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}{(x-{μ_k})^2})}{∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-{μ_l})^2)}  ≥ \frac{π_i\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}{(x-{μ_i})^2})}{∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-{μ_l})^2)}$
+   $\frac{π_k\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}{(x-μ_k)^2})}{∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-μ_l)^2)}  ≥ \frac{π_i\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}{(x-μ_i)^2})}{∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-μ_l)^2)}$
 
    or equivalently,$ f_k(x)≥f_i(x)$. Reversing these steps also holds.
 
@@ -47,13 +47,13 @@ image: chapter3_exercise.jpg
 
 
 
-3. $p_k(x)=\frac{π_k\frac{1}{\sqrt{2πσ_k}}exp(−\frac{1}{2σ_k^2}{(x-{μ_k})^2})}{∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-{μ_l})^2)}$
+3. $p_k(x)=\frac{π_k\frac{1}{\sqrt{2πσ_k}}exp(−\frac{1}{2σ_k^2}{(x-μ_k)^2})}{∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-μ_l)^2)}$
 
-   $log(p_k(x))=\frac{logπ_k+log(\frac{1}{\sqrt{2πσ_k}})−\frac{1}{2σ_k^2}{(x-{μ_k})^2}}{log(∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-{μ_l})^2))}$
+   $log(p_k(x))=\frac{logπ_k+log(\frac{1}{\sqrt{2πσ_k}})−\frac{1}{2σ_k^2}{(x-μ_k)^2}}{log(∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-μ_l)^2))}$
 
-   $log(p_k(x)) log(∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-{μ_l})^2)= logπ_k+log(\frac{1}{\sqrt{2πσ_k}})−\frac{1}{2σ_k^2}{(x-{μ_k})^2}$
+   $log(p_k(x)) log(∑π_l\frac{1}{\sqrt{2πσ}}exp(−\frac{1}{2σ^2}(x-μ_l)^2)= logπ_k+log(\frac{1}{\sqrt{2πσ_k}})−\frac{1}{2σ_k^2}{(x-μ_k)^2}$
 
-   $δ(x)= logπ_k+log(\frac{1}{\sqrt{2πσ_k}})−\frac{1}{2σ_k^2}{(x-{μ_k})^2}$
+   $δ(x)= logπ_k+log(\frac{1}{\sqrt{2πσ_k}})−\frac{1}{2σ_k^2}{(x-μ_k)^2}$
 
    quadratic
 
