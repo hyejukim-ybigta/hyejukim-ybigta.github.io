@@ -23,9 +23,9 @@ image: chapter3_exercise.jpg
 
 2. Claim: Maximizing $p_k(x)$ is equivalent to maximizing $δ_k(x)$
 
-   *Proof.* Let $x$ remain fixed and observe that we are maximizing over the parameter $k$. Suppose that $δ_k(x)≥δ_i(x)$. We will show that $f_k(x)≥f_i(x)$, From our assumption we have
+   *Proof.* Let $x​$ remain fixed and observe that we are maximizing over the parameter $k​$. Suppose that $δ_k(x)≥δ_i(x)​$. We will show that $f_k(x)≥f_i(x)​$, From our assumption we have
 
-   $x\frac{μ_k}{σ^2}−\frac{{μ_k}^2}{2σ^2}+log(π_k)≥x\frac{μ_i}{σ^2}−\frac{{μ_i}^2}{2σ^2}+log(π_i)$
+   $x\frac{μ_k}{σ^2}−\frac{(μ_k)^2}{2σ^2}+log(π_k)≥x\frac{μ_i}{σ^2}−\frac{{μ_i}^2}{2σ^2}+log(π_i)$
 
    exponential function is monotonically increasing function,so the following inequality holds
 
