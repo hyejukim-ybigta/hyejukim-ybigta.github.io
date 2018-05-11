@@ -59,6 +59,8 @@ http://people.stat.sfu.ca/~lockhart/richard/350/08_2/lectures/VariableSelection/
 
    \] 
 
+   ​
+
 
 
 6. (a) 
@@ -99,8 +101,4 @@ http://people.stat.sfu.ca/~lockhart/richard/350/08_2/lectures/VariableSelection/
 
   if $\beta_1 = 0$
 
-  (6.13) becomes
-
-  Consider (6.13) with p = 1. For some choice of y 1 and λ > 0,
-  plot (6.13) as a function of β 1 . Your plot should confirm that
-  (6.13) is solved by (6.15).
+  모르겠어여...
