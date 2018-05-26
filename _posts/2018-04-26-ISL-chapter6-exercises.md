@@ -4,7 +4,7 @@ title: "ISL_Chapter6_Exercises"
 author: "hyeju.kim"
 categories: ML
 tags: [ISL]
-image: 
+image: chapter2_exercise.jpg
 ---
 
 
