@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: "nlp_study_basic1"
+title: "nlp_skip-gram_tutorial"
 
 author: "hyeju.kim"
 
