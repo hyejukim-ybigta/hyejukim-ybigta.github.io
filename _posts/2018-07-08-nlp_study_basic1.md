@@ -19,7 +19,7 @@ image:
 
 한 가지씩 살펴보자.
 
-
+test
 
 ### 1. Rule-based
 
