@@ -1,3 +1,13 @@
+---
+layout: post
+title: "NLP_영화감성분석_part2"
+author: "hyeju.kim"
+categories: NLP
+tags: [NLP],[sentimental_analysis]
+image: nlp_tutorial6.png
+---
+
+
 
 출처: https://programmers.co.kr/learn/courses/21/lessons/1701
 
@@ -2772,7 +2782,7 @@ for cluster in range(0,10):
     print(words)
 ```
 
-    
+
     Cluster 0
     ['underdog', 'squall']
     
