@@ -14,27 +14,27 @@ image:
 
 
 
-perceptron 기본 개념 설명
+손가락 부상으로 이번주는 링크를 통해 설명...
+
+1.[perceptron 기본 개념 설명](https://towardsdatascience.com/what-the-hell-is-perceptron-626217814f53)
 
 
 
-https://towardsdatascience.com/what-the-hell-is-perceptron-626217814f53
+2.[learning algorithm 예시(p15)](http://130.243.105.49/~lilien/ml/seminars/2007_02_01b-Janecek-Perceptron.pdf)
 
 
 
-learning algorithm 예시(p15)
-
-
-
-http://130.243.105.49/~lilien/ml/seminars/2007_02_01b-Janecek-Perceptron.pdf
-
-
+3.weight update rule
 
 weight update rule 증명을 찾아보려고 했는데 찾아봤더니 겁나 수식이라 생략
 
-감만 잡자면
+감만 잡자면 
 
-https://stackoverflow.com/questions/50435809/perceptron-training-rule-why-multiply-by-x
+
+
+[링크](https://stackoverflow.com/questions/50435809/perceptron-training-rule-why-multiply-by-x)
+
+
 
 표현 그래프
 
